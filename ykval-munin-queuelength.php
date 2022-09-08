@@ -38,7 +38,6 @@ require_once 'ykval-config.php';
 require_once 'ykval-common.php';
 require_once 'ykval-synclib.php';
 
-
 $urls = $baseParams['__YKVAL_SYNC_POOL__'];
 
 if ($argc == 2 && strcmp($argv[1], 'autoconf') == 0)

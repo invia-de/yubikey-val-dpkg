@@ -36,8 +36,6 @@ require_once('ykval-db.php');
 
 class DbImpl extends Db
 {
-
-
   /**
    * Constructor
    *
@@ -99,7 +97,6 @@ class DbImpl extends Db
     }
   }
 
-
   /**
    * function to get a row from the query result
    * Once all rows have been fetch, function closeCursor needs to be called
@@ -154,6 +151,16 @@ class DbImpl extends Db
 		{
 			foreach ($where as $key => $value)
 			{
+                if ($key != 'server' && !(ctype_alnum($value) || is_null($value)))
+                {
+                    $this->myLog->log(LOG_WARNING, "findByMultiple: attempted to use non-alphanumeric in WHERE: " . $table . "." . $key . " = " . $value);
+                    return false;
+                }
+                elseif ($key == 'server' && !filter_var($value, FILTER_VALIDATE_URL))
+                {
+                    $this->myLog->log(LOG_WARNING, "findByMultiple: attempted to use invalid URL in WHERE: " . $table . "." . $key . " = " . $value);
+                    return false;
+                }
 				if ($key != NULL)
 				{
 					if ($value != NULL)
@@ -216,6 +223,15 @@ class DbImpl extends Db
     if ($where!=null){
       $query.= " WHERE";
       foreach ($where as $key=>$value) {
+                if ($key != 'server' && !ctype_alnum($value)) {
+                    $this->myLog->log(LOG_WARNING, "deleteByMultiple: attempted to write non-alphanumeric to the database: " . $value);
+                    return false;
+                }
+                elseif ($key == 'server' && !filter_var($value, FILTER_VALIDATE_URL))
+                {
+                    $this->myLog->log(LOG_WARNING, "deleteByMultiple: attempted to write invalid URL to the database: " . $value);
+                    return false;
+                }
 	$query.= " ". $key . " = '" . $value . "' and";
       }
       $query=rtrim($query, "and");

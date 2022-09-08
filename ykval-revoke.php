@@ -47,7 +47,7 @@ $do = $_REQUEST["do"];
 if (!$yk || !$do) {
   logdie($myLog, "ERROR Missing parameter");
 }
-if (!preg_match("/^([cbdefghijklnrtuv]{0,16})$/", $yk)) {
+if (!is_pubid($yk)) {
   logdie($myLog, "ERROR Unknown yk value: $yk");
 }
 if ($do != "enable" && $do != "disable") {
@@ -69,7 +69,7 @@ if (!$r) {
 # Enable/Disable the yubikey
 if (!$db->updateBy('yubikeys', 'yk_publicname', $yk,
 		   array('active'=>($do == "enable" ? "1" : "0")))) {
-  logdie($myLog, "ERROR Could not $do for $yk (rows $rows)");
+    logdie($myLog, "ERROR Could not $do for $yk");
 }
 
 # We are done

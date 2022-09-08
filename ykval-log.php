@@ -69,6 +69,10 @@ class Log
                 if (is_array($value)) {
                     $value = implode(':', $value);
                 }
+                if (is_object($value)) {
+                    $suffix .= " $key = " . (string)spl_object_id($value) . " ";
+                }
+                else {
                 $suffix .= " $key=$value ";
             }
         }

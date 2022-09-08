@@ -1,3 +1,10 @@
+yubikey-ksm (2.41-1) unstable; urgency=low
+
+  * New upstream release.
+  * php8.1 compatibility
+
+ -- Ronny Lindner <ronny.lindner@invia.de>  Thu, 08 Sep 2022 17:22:00 +0200
+
 yubikey-val (2.39-2) unstable; urgency=low
 
   * Fix yubikey-val.conf for apache 2.2 systems.

@@ -1,3 +1,11 @@
+2022-09-08  Ronny Lindner <ronny.lindner@invia.de>
+
+	* NEWS: NEWS for 2.40
+
+	* Enhanced data validation to address YSA-2020-01.
+
+	* Re-indent everything according to PEAR standard.
+
 2016-11-01  Jean Paul Galea <jeanpaul@yubico.com>
 
 	* NEWS: NEWS for 2.39

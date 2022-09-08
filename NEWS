@@ -1,3 +1,7 @@
+* Version 2.41 (released 2020-03-11)
+
+  * Redo release using the correct signing process.
+
 * Version 2.40 (released 2020-03-03)
 
   * Enhanced data validation to address YSA-2020-01.

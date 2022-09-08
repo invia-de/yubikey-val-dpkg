@@ -37,7 +37,6 @@ set_include_path(implode(PATH_SEPARATOR, array(
 require_once 'ykval-config.php';
 require_once 'ykval-common.php';
 
-
 $urls = $baseParams['__YKVAL_SYNC_POOL__'];
 
 if ($argc == 2 && strcmp($argv[1], 'autoconf') == 0)

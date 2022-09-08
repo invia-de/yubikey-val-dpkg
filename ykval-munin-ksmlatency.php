@@ -1,6 +1,5 @@
 #!/usr/bin/php
 <?php
-
 # Copyright (c) 2010-2015 Yubico AB
 # All rights reserved.
 #

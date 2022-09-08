@@ -60,7 +60,7 @@ make the request unique. The request is part of the HTTP GET URL,
 encoded using normal parameter/value pairs. For example (broken into
 two lines for legibility):
 
- http://api2.yubico.com/wsapi/2.0/verify?id=1&otp=cccccccbcjdifc\
+ https://api2.yubico.com/wsapi/2.0/verify?id=1&otp=cccccccbcjdifc\
  trndncchkftchjlnbhvhtugdljibej&nonce=aef3a7835277a28da831005c2ae3b919e2076a62
 
 The servers that Yubico provides are:
@@ -72,6 +72,10 @@ The servers that Yubico provides are:
  api5.yubico.com
 
 These servers are hosted in different places and by different organizations.
+
+Clients should send authentication requests to all of them in parallel, and
+utilize the first response received for added reliability should one or more
+of the api servers be offline, see link:https://github.com/Yubico/yubico-c-client[Yubico C client] for technical details.
 
 === Parse response
 
@@ -115,7 +119,7 @@ identity is to remove 32 characters from the end and then use the
 remaining string, which should be 2-16 characters, as the YubiKey
 identity.
 
-Note that the validation server is case insensitive, so you need to
+Note that the validation server is case sensitive, so you need to
 lower-case the string in order to avoid caps lock resulting in
 different identities with the only differ being case of the prefix.
 
@@ -125,6 +129,4 @@ YubiKey prefix in a database.
 === The End
 
 There are some more subtle matters that can be important, so please
-read the entire protocol specification for all the details.  Further,
-for added reliability, you may send the request in parallel to more
-than one server, which is not explained above.
+read the entire protocol specification for all the details.

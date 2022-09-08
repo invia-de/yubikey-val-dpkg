@@ -1,3 +1,9 @@
+* Version 2.40 (released 2020-03-03)
+
+  * Enhanced data validation to address YSA-2020-01.
+
+  * Re-indent everything according to PEAR standard.
+
 * Version 2.39 (released 2016-11-01)
 
   * Minor documentation fix.

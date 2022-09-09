@@ -73,7 +73,8 @@ class Log
                     $suffix .= " $key = " . (string)spl_object_id($value) . " ";
                 }
                 else {
-                $suffix .= " $key=$value ";
+                    $suffix .= " $key=$value ";
+                }
             }
         }
 

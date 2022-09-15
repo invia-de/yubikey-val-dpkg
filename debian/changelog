@@ -1,3 +1,10 @@
+yubikey-val (2.41-1+nmu2) unstable; urgency=low
+
+  * Non-maintainer upload.
+  * php syntax error
+
+ -- Ronny Lindner <ronny.lindner@invia.de>  Thu, 15 Sep 2022 11:13:00 +0200
+
 yubikey-val (2.41-1+nmu1) unstable; urgency=low
 
   * Non-maintainer upload.
